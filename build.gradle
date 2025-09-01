@@ -40,7 +40,7 @@ minecraft {
 jar {
     manifest {
         attributes(
-            'FMLCorePlugin': 'jonius7.ftafix.core.FtaFixCore', // full class name of your IFMLLoadingPlugin
+            'FMLCorePlugin': 'jonius7.ftafix.FtaFixCore', // full class name of your IFMLLoadingPlugin
             'FMLCorePluginContainsFMLMod': 'true',                  // if you want it to appear in the mods list
             'Implementation-Title': project.name,
             'Implementation-Version': project.version
