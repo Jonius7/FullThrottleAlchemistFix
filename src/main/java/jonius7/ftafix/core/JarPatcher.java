@@ -5,7 +5,12 @@ import java.nio.file.Files;
 import java.util.Enumeration;
 import java.util.zip.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class JarPatcher {
+
+    private static final Logger LOGGER = LogManager.getLogger("FtaFix");
 
     public static void stripForestry(File inputJar, File outputJar) throws IOException {
         try (ZipFile zip = new ZipFile(inputJar);
@@ -17,7 +22,7 @@ public class JarPatcher {
 
                 // Skip forestry folder
                 if (entry.getName().startsWith("forestry/")) {
-                    System.out.println("[FTA Fix] Skipping " + entry.getName());
+                    LOGGER.info("Skipping {}", entry.getName());
                     continue;
                 }
 
@@ -31,6 +36,7 @@ public class JarPatcher {
                 }
                 out.closeEntry();
             }
+            LOGGER.info("Finished patching FullThrottle Alchemist jar.");
         }
     }
 }
