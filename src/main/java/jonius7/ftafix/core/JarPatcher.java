@@ -1,7 +1,7 @@
 package jonius7.ftafix.core;
 
 import java.io.*;
-import java.nio.file.*;
+import java.nio.file.Files;
 import java.util.Enumeration;
 import java.util.zip.*;
 
@@ -13,16 +13,16 @@ public class JarPatcher {
 
             Enumeration<? extends ZipEntry> entries = zip.entries();
             while (entries.hasMoreElements()) {
-                ZipEntry e = entries.nextElement();
+                ZipEntry entry = entries.nextElement();
 
-                // Skip forestry/ folder
-                if (e.getName().startsWith("forestry/")) {
-                    System.out.println("[FTA Fix] Skipping " + e.getName());
+                // Skip forestry folder
+                if (entry.getName().startsWith("forestry/")) {
+                    System.out.println("[FTA Fix] Skipping " + entry.getName());
                     continue;
                 }
 
-                out.putNextEntry(new ZipEntry(e.getName()));
-                try (InputStream in = zip.getInputStream(e)) {
+                out.putNextEntry(new ZipEntry(entry.getName()));
+                try (InputStream in = zip.getInputStream(entry)) {
                     byte[] buffer = new byte[8192];
                     int len;
                     while ((len = in.read(buffer)) != -1) {
