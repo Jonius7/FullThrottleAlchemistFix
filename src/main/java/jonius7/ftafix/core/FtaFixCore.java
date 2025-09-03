@@ -26,8 +26,13 @@ public class FtaFixCore implements IFMLLoadingPlugin {
             File backupJar = new File(modsDir, targetJar.getName() + ".bak");
 
             if (!targetJar.exists()) {
-                LOGGER.warn("FullThrottle Alchemist jar not found: {}", targetJar.getAbsolutePath());
-                return;
+            	if (patchedJar.exists()) {
+            		LOGGER.warn("FullThrottle Alchemist already patched: {}", patchedJar.getName());
+            		return;
+            	} else {
+            		LOGGER.warn("FullThrottle Alchemist jar not found: {}", targetJar.getAbsolutePath());
+                    return;
+            	}
             }
 
             if (patchedJar.exists()) {
