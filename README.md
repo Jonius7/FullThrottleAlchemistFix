@@ -1,37 +1,29 @@
-# anatawa12's ForgeGradle 1.2 fork for Gradle 4.4.1+ - example project
+# FullThrottle Alchemist Fix
 
-This is an example mod using the [fork of ForgeGradle-1.2 made by anatawa12](https://github.com/anatawa12/ForgeGradle-1.2).
-This fork supports Gradle 4.4.1 and later. This example project uses Gradle 5.6.4.
+[FullThrottle Alchemist](https://www.curseforge.com/minecraft/mc-mods/fullthrottle-alchemist) is an old but a great mod for 1.7.10, but it doesn't play nicely when loaded with multiple mods and causes a `ModSortingException` when Forge tries to sort out which mods load first. 
 
-## How to use this example project
+**FullThrottle Alchemist Fix** fixes this by removing the outdated Forestry API that it ships with. As FTA is All Rights Reserved, I cannot legally redistribute the patched `.jar` file and so this Fix mod exists. Drop it in the same folder as the latest FTA jar: `FullThrottle_Alchemist-1.7.10-1.0.18a.jar`
 
-You can download this example project from [here](https://github.com/anatawa12/ForgeGradle-example/archive/master.zip), or use it as a template on Github.
-This project can be used as a replacement for Forge's 1.7.10 MDK.
+Upon running Minecraft it will patch the jar file and rename it to `FullThrottle_Alchemist-1.7.10-1.0.18a-patched.jar` while also creating a backup.
 
-## How to replace ForgeGradle 1.2. with anatawa12's fork
-Although this example project has some differences to Forge's 1.7.10 MDK, anatawa12's fork of ForgeGradle 1.2 can be used by most projects with only minimal changes to their Gradle build script.
 
-Here is a list of changes to Forge's 1.7.10 MDK Gradle build script, to replace the official ForgeGradle 1.2 plugin with the fork. These changes are likely to work with most projects based on Forge's 1.7.10 MDK.
 
-In the repositories block of the buildscript section, add jcenter, and switch the Forge maven to use HTTPS instead of HTTP:
-```diff
-     repositories {
-         mavenCentral()
-         maven {
-             name = "forge"
--            url = "http://files.minecraftforge.net/maven"
-+            url = "https://maven.minecraftforge.net/"
-         }
-```
+This was the minimal setup of 14 mods that the FTA Fix was tested against.
 
-Also in the dependencies block of the buildscript section, change the dependency on Forge's official ForgeGradle 1.2 to the fork:
-```diff
-     dependencies {
--        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
-+            changing = true
-+        }
-     }
-```
-
-The Gradle wrapper should also be changed to use Gradle 4.4.1 or higher. <!--Currently, the plugin [does not support Gradle 6.x](https://github.com/anatawa12/ForgeGradle-1.2/issues/9), although this may change in the future. As such, the latest version of Gradle this plugin supports is Gradle 5.6.4.-->
+<details><summary>Minimal Mods List </summary>
+<ul>
+<li>Additional Buildcraft Objects</li>
+<li>Biomes O&#39; Plenty</li>
+<li>BuildCraft</li>
+<li>CodeChicken Core</li>
+<li>CodeChickenLib Unofficial 1.7.10</li>
+<li>Forestry</li>
+<li>FullThrottle Alchemist</li>
+<li>FullThrottle NEI</li>
+<li>Immersive Engineering</li>
+<li>Mantle</li>
+<li>Natura</li>
+<li>NotEnoughItems</li>
+<li>Railcraft</li>
+<li>Tinkers&#39; Construct</li>
+</ul>

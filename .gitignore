@@ -23,6 +23,7 @@ eclipse
 *.iml
 *.ipr
 *.iws
+*.bat
 
 # vscode
 
