@@ -1,4 +1,4 @@
-package jonius7.ftafix.core;
+package jonius7.ftafix;
 
 import java.io.*;
 import java.nio.file.Files;

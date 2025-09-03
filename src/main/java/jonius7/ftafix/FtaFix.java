@@ -1,4 +1,4 @@
-package jonius7.ftafix.core;
+package jonius7.ftafix;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
@@ -10,11 +10,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @MCVersion("1.7.10")
-public class FtaFixCore implements IFMLLoadingPlugin {
+public class FtaFix implements IFMLLoadingPlugin {
 
     private static final Logger LOGGER = LogManager.getLogger("FtaFix");
 
-    public FtaFixCore() {
+    public FtaFix() {
         patchFullThrottleAlchemist();
     }
 
@@ -27,7 +27,7 @@ public class FtaFixCore implements IFMLLoadingPlugin {
 
             if (!targetJar.exists()) {
             	if (patchedJar.exists()) {
-            		LOGGER.warn("FullThrottle Alchemist already patched: {}", patchedJar.getName());
+            		LOGGER.warn("FullThrottle Alchemist already patched: {}", patchedJar.getAbsolutePath());
             		return;
             	} else {
             		LOGGER.warn("FullThrottle Alchemist jar not found: {}", targetJar.getAbsolutePath());

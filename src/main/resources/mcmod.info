@@ -1,13 +1,13 @@
 [
 {
   "modid": "ftafix",
-  "name": "FullThrottle Alchemist Core Fix",
+  "name": "FullThrottle Alchemist Fix",
   "description": "Fixes the mod cycle caused by FullThrottle Alchemist in 1.7.10 modpacks.",
   "version": "1.0",
   "mcversion": "1.7.10",
   "credits": "Bluedart for making FullThrottle Alchemist",
   "authorList": ["jonius7"],
   "url": "",
-  "dependencies": [ "required-after:Forestry" ]
+  "dependencies": []
 }
 ]
